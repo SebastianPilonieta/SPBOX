@@ -49,7 +49,7 @@ z-index:1000
 .nav-layout {
 border-bottom:1px solid var(--color-black);
 display:grid;
-grid-template-columns:0.5fr 1fr 0.5fr;
+grid-template-columns:1fr 1fr;
 grid-template-rows:1fr;
 padding:1.5rem;
 }
@@ -67,16 +67,15 @@ justify-content: center;
 }
 
 .nav-link {
-flex: 0 0 5rem;
-position: relative;
+width: 6rem;
 align-items:center;
 display:flex;
 font-weight:600;
-justify-content:center
 }
 
 .nav-link.cart {
-    justify-content: flex-end;
+    width: 100%;
+    justify-content: flex-end !important;
 }
 
 .nav-link.main {
@@ -96,7 +95,7 @@ padding-left:20px
 }
 
 .nav-link:hover {
-font-weight: 800;
+font-weight: 900;
 }
 
 @media screen and (min-width: 1201px) {
@@ -115,8 +114,6 @@ padding-left:20px
 }
 
 .nav-link.cart {
-display:flex;
-grid-column:3 / span 1;
 justify-content:flex-end;
 padding-right:20px
 }
@@ -129,19 +126,21 @@ top:auto
 }
 
 .nav-layout {
+position: relative;
 background-color:#f8f8f8;
 border-bottom:none;
 border-top:1px solid var(--color-black);
 grid-template-columns:1fr 1fr 1fr;
-grid-template-rows:1fr;
-padding:1rem 10px
+padding:1rem 0;
 }
 
 .nav-logo {
-display:block;
-grid-column:2 / span 1;
-grid-row:1;
-margin:0 auto
+position: relative;
+height: 100%;
+max-height: 3rem;
+grid-column:1 / span 1;
+align-items: start;
+justify-content: flex-start;
 }
 
 .nav-menu {
@@ -154,7 +153,7 @@ overflow:hidden;
 padding-left:0;
 position:absolute;
 transition:height 200ms ease;
-width:100%
+width:100vw
 }
 
 .nav-layout.menu-open .nav-menu {
@@ -172,10 +171,16 @@ transition:200ms ease
 }
 
 .nav-link {
+width: 100%;
 max-width: none;
 height:100%;
-justify-content:flex-end;
 padding-right:10px
+}
+
+.nav-link.cart {
+    width: auto;
+grid-column:3 / span 1;
+padding-right:20px
 }
 
 .nav-hamburger {
@@ -184,17 +189,17 @@ box-sizing:border-box;
 cursor:pointer;
 display:flex;
 flex-direction:column;
-grid-column:1 / span 1;
+grid-column:2 / span 1;
 height:3rem;
 justify-content:center;
 padding:0;
 position:relative;
-row-gap:8px;
-width:3rem;
---gap:.8rem;
+row-gap:5px;
+width:auto;
+--gap:.5rem;
 --rotate:35;
 --thickness:.2rem;
---width:100%
+--width:3rem
 }
 
 .hamburger-line {

@@ -51,24 +51,36 @@ border-bottom:1px solid var(--color-black);
 display:grid;
 grid-template-columns:0.5fr 1fr 0.5fr;
 grid-template-rows:1fr;
-padding:1.5rem 0
+padding:1.5rem;
 }
 
 .nav-logo {
-display:inline-block;
-height:auto;
-margin:0 auto;
-max-height:3rem
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+height: 100%;
+max-height: 3rem;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .nav-link {
-max-width: 6rem;
+flex: 0 0 5rem;
 position: relative;
-width: auto;
 align-items:center;
 display:flex;
 font-weight:600;
 justify-content:center
+}
+
+.nav-link.cart {
+    justify-content: flex-end;
+}
+
+.nav-link.main {
+    justify-content: flex-start;
 }
 
 .nav-hamburger {
